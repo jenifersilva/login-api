@@ -33,3 +33,11 @@ npm test
 ## Pipeline CI
 
 A pipeline está configurada em `.github/workflows/ci.yml` para executar os testes automaticamente após o clone do repositório.
+
+## Relatório de Testes no GitHub Pages
+
+Após cada push na branch `main`, um relatório HTML dos testes é gerado e publicado automaticamente no GitHub Pages, disponível em:
+
+[https://jenifersilva.github.io/login-api/](https://jenifersilva.github.io/login-api/)
+
+O relatório é gerado com Mochawesome e mostra o resultado dos testes automatizados do projeto.

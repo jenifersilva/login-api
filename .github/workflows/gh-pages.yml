@@ -1,0 +1,28 @@
+name: Test Report Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Instalar dependências
+        run: npm install
+      - name: Executar testes e gerar relatório HTML
+        run: |
+          npx mocha 'tests/**/*.test.js' --reporter mochawesome --reporter-options reportDir=report,reportFilename=index,quiet=true
+      - name: Publicar relatório no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./report
+          publish_branch: gh-pages
