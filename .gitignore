@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Relatórios de teste
+report/
+
+# Logs
+*.log
+
+# Ambiente
+.env
+
+# Diretórios do sistema
+.DS_Store
+
+# Arquivos de cobertura
+coverage/
+
+# Arquivos temporários
+*.tmp
+
+# Relatórios do mochawesome
+mochawesome-report/
